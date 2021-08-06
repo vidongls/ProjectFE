@@ -1,0 +1,332 @@
+@import 'reset', 'flex', 'media', 'grid';
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  @include sm {
+    padding: 0px 20px;
+  }
+}
+body {
+  font-family: 'Hind', sans-serif;
+}
+.popular,
+.new,
+.sale {
+  margin-left: 3px;
+  display: inline-block;
+  font-family: Hind, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  background-color: #fdbc20;
+  padding: 4px 4px 2px;
+}
+.sale {
+  background-color: #f8353e;
+}
+.new {
+  background-color: #03a9f5;
+}
+.header {
+  padding: 4px 0px;
+  .container {
+    @include xs {
+      justify-content: space-between;
+    }
+    @include sm {
+      justify-content: space-between;
+    }
+    position: relative;
+  }
+  &__logo {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    margin-right: 12px;
+  }
+  &__listmenu {
+    margin-left: 10px;
+    flex: 2;
+    @include xs {
+      display: none;
+    }
+    @include sm {
+      display: none;
+    }
+    @include lg {
+      display: block;
+    }
+    li {
+      margin-right: 24px;
+      > a {
+        padding: 28px 0px 27px;
+        color: black;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.1;
+        &:hover {
+          color: #66bdff;
+        }
+      }
+      &:hover {
+        .dropdown {
+          display: block;
+          animation: slide-down 0.2s ease-out;
+        }
+      }
+    }
+    li:last-child {
+      margin-right: 0px;
+    }
+  }
+  &__options {
+    font-size: 20px;
+    > div {
+      padding: 8px;
+      cursor: pointer;
+    }
+    &-account,
+    &-setting {
+      @include xs {
+        display: none;
+      }
+      @include sm {
+        display: none;
+      }
+      @include lg {
+        display: block;
+      }
+    }
+  }
+  &__mobile {
+    display: none;
+    cursor: pointer;
+    padding: 14px 8px;
+    .btnNav {
+      display: block;
+      position: relative;
+      width: 20px;
+      height: 2px;
+      background-color: #333;
+      &:before,
+      &::after {
+        position: absolute;
+        transition: transform 0.3s ease-in;
+        content: '';
+        width: 20px;
+        height: 2px;
+        background-color: #333;
+      }
+      &::before {
+        top: -6px;
+      }
+      &::after {
+        bottom: -6px;
+      }
+    }
+    &.active {
+      .btnNav {
+        background-color: inherit;
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+        &::after {
+          bottom: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    @include xs {
+      display: block;
+    }
+    @include sm {
+      display: block;
+    }
+    @include lg {
+      display: none;
+    }
+  }
+  .dropdown {
+    display: none;
+    position: absolute;
+    width: 1150px;
+    background-color: #fff;
+    left: 0;
+    padding: 40px;
+    margin-top: 8px;
+    box-shadow: 0px 0px 12px 1px #f6f6f6;
+    transition: all 0.3s ease-out;
+    @include lg {
+      width: 960px;
+      left: 20px;
+    }
+    @include xl {
+      width: 1150px;
+    }
+    @keyframes slide-down {
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      33% {
+        opacity: 0.5;
+        transform: translateY(6px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    li {
+      a {
+        text-transform: capitalize;
+      }
+    }
+    &__content {
+      // margin-bottom: 24px;
+      > ul {
+        font-size: 14px;
+        > li:first-child {
+          padding-bottom: 8px;
+          font-weight: 500;
+          color: #191919;
+        }
+        li {
+          > a {
+            color: #777;
+            line-height: 22px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            &:hover {
+              color: #66bdff;
+            }
+          }
+          > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        &:hover {
+          li:first-child {
+            color: #66bdff;
+          }
+        }
+      }
+      .menCusText {
+        color: #fff;
+        span:first-child {
+        }
+      }
+    }
+    &__images {
+      margin-top: 10px;
+      &-content {
+        display: flex;
+        align-items: center;
+        position: relative;
+        img {
+          width: 100%;
+          border-radius: 6px;
+        }
+        .text,
+        .text2 {
+          padding: 20px 39px;
+          position: absolute;
+          > h3 {
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 31px;
+            span {
+              color: #03a9f5;
+            }
+          }
+        }
+        .text2 {
+          color: white;
+        }
+      }
+    }
+    &.dropSmall {
+      width: auto;
+      left: auto;
+      min-width: 280px;
+      padding-bottom: 40px;
+      margin-left: -50px;
+      ul {
+        padding-left: 10px;
+        li {
+          padding: 0;
+          font-weight: inherit;
+          color: inherit;
+          &.liFrist {
+            padding-bottom: 8px;
+            font-weight: 500;
+            color: #191919;
+          }
+        }
+      }
+      &-2 {
+        max-width: 260px;
+        padding-right: 0;
+      }
+    }
+    .owl-visible {
+      position: relative;
+      margin-bottom: 10px;
+      .item {
+        max-width: 145px;
+        @include lg {
+          max-width: 120px;
+        }
+        @include xl {
+          max-width: 145px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &__desc {
+          color: #191919;
+          &-title {
+            font-size: 14px;
+            font-weight: 400;
+          }
+          &-price {
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 500;
+          }
+        }
+      }
+      .owl-nav {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        .owl-prev,
+        .owl-next {
+          z-index: 7;
+          cursor: pointer;
+          border: none;
+          background: none;
+          width: 30px;
+          height: 30px;
+          font-size: 20px;
+          border-radius: 50%;
+          margin: 0;
+          &:hover {
+            color: #03a9f5;
+          }
+        }
+      }
+    }
+  }
+}

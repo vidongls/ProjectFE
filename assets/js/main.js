@@ -1,8 +1,11 @@
 function start() {
   activeNavMobile()
   templateMenuSlider()
+  sliderHeader()
 }
 start()
+
+//Nav mobile
 function activeNavMobile() {
   let navMoblie = document.querySelector('.header__mobile')
   navMoblie.addEventListener('click', () => {
@@ -11,14 +14,7 @@ function activeNavMobile() {
       : navMoblie.classList.add('active')
   })
 }
-function limit(c) {
-  return this.filter((x, i) => {
-    if (i <= c - 1) {
-      return true
-    }
-  })
-}
-Array.prototype.limit = limit
+
 //Slider menu women
 function templateMenuSlider() {
   products.forEach((el) => {
@@ -49,5 +45,69 @@ function templateMenuSlider() {
     ],
     lazyLoad: true,
     items: 3,
+  })
+}
+
+//Slider
+function sliderHeader() {
+  const sliderTemplate = [
+    {
+      caption: 'Multipurpose',
+      title: 'Premium <br/> Shopify Theme',
+      text: '30 skins, powerful features, great support, exclusive offer',
+      urlImage: 'assets/img/slider1.png',
+      buttonText: 'SHOP NOW!',
+      classCheck2: '',
+      classCheck: '',
+    },
+    {
+      caption: 'Ready To',
+      title: 'Use Unique <br/> Demos',
+      text: 'Optimized for speed, website that sells',
+      urlImage: 'assets/img/slider2.png',
+      buttonText: 'SHOP NOW!',
+      classCheck2: 'textColor',
+      classCheck: '',
+    },
+    {
+      caption: 'Oberlo',
+      title: 'Find Products for <br/> Your Shop',
+      text: 'Oberlo allows you to easily import dropshipped products directly into your ecommerce store',
+      urlImage: 'assets/img/slider3.mp4',
+      buttonText: 'SHOP NOW!',
+      classCheck: 'video-call',
+      classCheck2: 'textColor',
+    },
+  ]
+
+  sliderTemplate.forEach((val) => {
+    let template = ` 
+    <div class="item flex j-center a-center">
+      <div class="slider__image ${val.classCheck}">
+        <img src="${val.urlImage}" alt="" />
+        <video autoplay="true" loop>
+              <source src="${val.urlImage}" type="video/mp4" />
+            </video>
+      </div>
+      <div class="slider__content ${val.classCheck2}">
+        <div class="slider__content-caption">${val.caption}</div>
+        <div class="slider__content-title"> ${val.title} </div>
+        <div class="slider__content-text"> ${val.text} </div>
+        <div class="slider__content-button btn">${val.buttonText}</div>
+      </div>
+    </div>`
+    document
+      .querySelector('.slider .owl-carousel')
+      .insertAdjacentHTML('beforeend', template)
+  })
+
+  $('.slider .owl-carousel').owlCarousel({
+    loop: true,
+    slideSpeed: 300,
+    items: 1,
+    autoplay: true,
+    autoplayTimeout: 6000,
+    animateOut: 'fadeOut',
+    lazyLoad: true,
   })
 }

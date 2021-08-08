@@ -7,6 +7,11 @@
 // md = medium < 992
 // lg = large < 1200
 // xl = extra large >= 1200
+// @mixin xxs {
+//   @media (max-width: 325px) {
+//     @content;
+//   }
+// }
 @mixin xs {
   @media (max-width: 576px) {
     @content;
@@ -30,7 +35,11 @@
     @content;
   }
 }
-
+@mixin mobile {
+  @media (min-width: 0) and (max-width: 992px) {
+    @content;
+  }
+}
 @mixin xl {
   @media (min-width: 1200px) {
     @content;

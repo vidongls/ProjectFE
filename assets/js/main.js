@@ -8,11 +8,23 @@ start()
 //Nav mobile
 function activeNavMobile() {
   let navMoblie = document.querySelector('.header__mobile')
+  let btnNavClose = document.querySelector('.btnNav-close')
+
   navMoblie.addEventListener('click', () => {
-    navMoblie.classList.contains('active')
-      ? navMoblie.classList.remove('active')
-      : navMoblie.classList.add('active')
+    if (!navMoblie.classList.contains('active')) {
+      navMoblie.classList.add('active')
+    }
   })
+
+  btnNavClose.addEventListener('click', (e) => {
+    e.preventDefault()
+    navMoblie.classList.remove('active')
+  })
+
+  // $(document).on('click', '.btnNav-close', function (e) {
+  //   e.preventDefault()
+  //   navMoblie.classList.remove('active')
+  // })
 }
 
 //Slider menu women
@@ -87,7 +99,7 @@ function sliderHeader() {
         <img src="${val.urlImage}" alt="" />
         <video autoplay="true" loop>
               <source src="${val.urlImage}" type="video/mp4" />
-            </video>
+        </video>
       </div>
       <div class="slider__content ${val.classCheck2}">
         <div class="slider__content-caption">${val.caption}</div>

@@ -29,6 +29,9 @@ body {
 .new {
   background-color: #03a9f5;
 }
+.active {
+  color: #2879fe !important;
+}
 .btn {
   font-size: 14px;
   line-height: 1;
@@ -75,6 +78,7 @@ body {
     @include sm {
       display: none;
     }
+
     @include lg {
       display: block;
     }
@@ -125,6 +129,15 @@ body {
     display: none;
     cursor: pointer;
     padding: 14px 8px;
+    @include xs {
+      display: block;
+    }
+    @include sm {
+      display: block;
+    }
+    @include lg {
+      display: none;
+    }
     .btnNav {
       display: block;
       position: relative;
@@ -159,15 +172,101 @@ body {
           transform: rotate(-45deg);
         }
       }
+      + .header__mobile-menulist {
+        transform: translateX(0%);
+      }
     }
-    @include xs {
-      display: block;
-    }
-    @include sm {
-      display: block;
-    }
-    @include lg {
-      display: none;
+    &-menulist {
+      position: fixed;
+      z-index: 15;
+      background: #fff;
+      top: 0;
+      left: 0;
+      min-width: 270px;
+      height: 100vh;
+      // padding: 30px 0;
+      transform: translateX(-150%);
+      overflow: auto;
+      transition: all 0.2s ease;
+      transition: transform 0.3s ease;
+      @include sm {
+        display: block;
+      }
+      @include lg {
+        display: none;
+      }
+
+      ul {
+        border-bottom: 1px solid #e9e7e7;
+        margin-top: 24px;
+        padding-bottom: 29px;
+        > li {
+          position: relative;
+          > a {
+            display: flex;
+            padding: 9px 27px 9px 30px;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+            color: #191919;
+            transition: all 0.2s linear;
+          }
+          &:hover {
+            a,
+            i {
+              color: #66bdff;
+            }
+          }
+        }
+        &.list {
+          margin-top: 0px;
+          li:first-child {
+            padding-top: 16px;
+          }
+          i {
+            position: absolute;
+            right: 30px;
+          }
+        }
+        &.function {
+          a {
+            color: #777;
+            line-height: 24px;
+          }
+          i {
+            color: #191919;
+            font-size: 20px;
+            margin-right: 8px;
+          }
+        }
+      }
+      &.language {
+        padding: 16px 30px 16px 31px;
+        li {
+          height: 20px;
+        }
+      }
+      .btnNav-close {
+        padding: 15px 16px 13px 29px;
+        border-bottom: 1px solid #e9e7e7;
+        i,
+        a {
+          color: #777;
+          font-size: 14px;
+          line-height: 22px;
+        }
+        i {
+          padding-right: 6px;
+          position: relative;
+          top: 2px;
+        }
+        &:hover {
+          a,
+          i {
+            color: #66bdff;
+          }
+        }
+      }
     }
   }
   .dropdown {
@@ -179,7 +278,7 @@ body {
     left: 0;
     padding: 40px;
     margin-top: 8px;
-    box-shadow: 0px 0px 12px 1px #f6f6f6;
+    box-shadow: 0px 0px 2px 1px #f6f6f6;
     transition: all 0.3s ease-out;
     @include lg {
       width: 960px;
@@ -203,11 +302,6 @@ body {
       }
     }
 
-    li {
-      a {
-        text-transform: capitalize;
-      }
-    }
     &__content {
       // margin-bottom: 24px;
       > ul {
@@ -219,6 +313,7 @@ body {
         }
         li {
           > a {
+            text-transform: capitalize;
             color: #777;
             line-height: 22px;
             padding-top: 1px;
@@ -385,18 +480,39 @@ body {
 .slider {
   position: relative;
   width: 100%;
+  z-index: 10;
+  .item {
+    height: 886px;
+    // @include xxs {
+    //   height: 100px;
+    // }
+    @include xs {
+      height: 260px;
+    }
+    @include sm {
+      height: 400px;
+    }
+    @include md {
+      height: 500px;
+    }
+    @include lg {
+      height: 700px;
+    }
+    @include xl {
+      height: 886px;
+    }
+  }
   &__image {
     width: 100%;
-    max-height: 886px;
+    height: 100%;
     img {
       width: 100%;
-      min-height: 886px;
+      height: 100%;
       object-fit: cover;
     }
     video {
       width: 100% !important;
-      min-height: 886px;
-      // height: auto !important;
+      height: 100% !important;
       object-fit: cover;
       display: none;
     }
@@ -413,28 +529,12 @@ body {
   &__content {
     position: absolute;
     text-align: center;
-    transition: all 0.1s ease-out;
-    animation: backInUp 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
-    // @keyframes slide-up {
-    //   0% {
-    //     opacity: 0;
-    //     transform: translateY(500px);
-    //   }
-    //   33% {
-    //     opacity: 0.2;
-    //   }
-    //   66% {
-    //     opacity: 0.6;
-    //   }
-    //   100% {
-    //     opacity: 1;
-    //     transform: translateY(0);
-    //   }
-    // }
+    transition: all 0.3s ease-out;
+    // animation: backInUp 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
     @keyframes backInUp {
       0% {
         transform: translateY(1200px) scale(0.7);
-        opacity: 0.7;
+        opacity: 0.4;
       }
 
       80% {
@@ -447,18 +547,41 @@ body {
         opacity: 1;
       }
     }
-
     &-caption {
       font-size: 36px;
       line-height: 70px;
       font-weight: 400;
       color: #2879fe;
+      @include xs {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      @include sm {
+        font-size: 26px;
+        line-height: 50px;
+      }
+      @include lg {
+        font-size: 36px;
+        line-height: 60px;
+      }
     }
     &-title {
       font-size: 70px;
       line-height: 70px;
       color: #191919;
       font-weight: 500;
+      @include xs {
+        font-size: 20px;
+        line-height: 20px;
+      }
+      @include sm {
+        font-size: 30px;
+        line-height: 50px;
+      }
+      @include lg {
+        font-size: 70px;
+        line-height: 60px;
+      }
     }
     &-text {
       font-size: 16px;
@@ -466,12 +589,42 @@ body {
       margin-top: 18px;
       color: #191919;
       margin-bottom: 16px;
+      @include xs {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      @include sm {
+        font-size: 14px;
+        margin-top: 16px;
+        margin-bottom: 14px;
+      }
+      @include lg {
+        font-size: 16px;
+        margin-top: 18px;
+        margin-bottom: 28px;
+      }
     }
     &-button {
       height: 50px;
       padding: 0 48px;
+      @include xs {
+        height: 30px;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 10px;
+      }
+      @include sm {
+        height: 42px;
+        padding: 0 26px;
+      }
+      @include lg {
+        height: 50px;
+        padding: 0 48px;
+      }
       &:hover {
-        background-color: #2267d8;
+        background-color: #fff;
+        color: #2879fe;
       }
     }
     &.textColor {
@@ -484,8 +637,17 @@ body {
     position: absolute;
     bottom: 6%;
     left: 50%;
-    margin-left: -35px;
-
+    margin-left: -45px;
+    @include xs {
+      bottom: 0;
+      margin-left: -36px;
+    }
+    @include sm {
+      bottom: 4%;
+    }
+    @include lg {
+      bottom: 6%;
+    }
     .owl-dot.active {
       span {
         background-color: #191919 !important;
@@ -494,6 +656,34 @@ body {
     span {
       width: 14px !important;
       height: 14px !important;
+      @include xs {
+        width: 8px !important;
+        height: 8px !important;
+      }
+      @include sm {
+        width: 14px !important;
+        height: 14px !important;
+      }
+    }
+  }
+  .owl-item.active {
+    .item {
+      .slider__content {
+        animation: backInUp 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+        animation-delay: 0.3s;
+        &-button {
+          animation: backInUp 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+          animation-delay: 1s;
+        }
+        &-text {
+          animation: backInUp 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+          animation-delay: 0.6s;
+        }
+        &-title {
+          animation: backInUp 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+          animation-delay: 0.8s;
+        }
+      }
     }
   }
 }

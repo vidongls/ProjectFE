@@ -2,6 +2,7 @@ function start() {
   activeNavMobile()
   templateMenuSlider()
   sliderHeader()
+  animationScroll()
 }
 start()
 
@@ -123,22 +124,25 @@ function sliderHeader() {
     lazyLoad: true,
   })
 }
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const square = entry.target.querySelectorAll('.box-image')
 
-    if (entry.isIntersecting) {
+//Animation when scroll
+function animationScroll() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const square = entry.target.querySelectorAll('.box-image')
+
+      if (entry.isIntersecting) {
+        square.forEach((el) => {
+          el.classList.add('boximg-animation')
+        })
+        return
+      }
       square.forEach((el) => {
-        el.classList.add('boximg-animation')
+        el.classList.remove('boximg-animation')
       })
-      return // if we added the class, exit the function
-    }
-    square.forEach((el) => {
-      el.classList.remove('boximg-animation')
     })
-    // We're not intersecting, so remove the class!
   })
-})
 
-observer.observe(document.querySelector('.layout__image-boximg1'))
-observer.observe(document.querySelector('.layout__image-boximg2'))
+  observer.observe(document.querySelector('.layout__image-boximg1'))
+  observer.observe(document.querySelector('.layout__image-boximg2'))
+}

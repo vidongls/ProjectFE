@@ -1416,8 +1416,8 @@ section .layout__image .box-image:hover .btn {
 
 @media (max-width: 576px) {
   section .layout__image .box-image.boximg1.boximg-animation {
-    -webkit-animation: backInLeft 0.5s 0.3s ease;
-            animation: backInLeft 0.5s 0.3s ease;
+    -webkit-animation: backInLeft 0.9s ease;
+            animation: backInLeft 0.9s ease;
   }
 }
 
@@ -1466,8 +1466,8 @@ section .layout__image .box-image:hover .btn {
 
 @media (max-width: 576px) {
   section .layout__image .box-image.boximg2.boximg-animation {
-    -webkit-animation: backInRight 0.5s 0.2s ease both;
-            animation: backInRight 0.5s 0.2s ease both;
+    -webkit-animation: backInRight 0.9s ease both;
+            animation: backInRight 0.9s ease both;
   }
 }
 
@@ -1480,8 +1480,8 @@ section .layout__image .box-image:hover .btn {
 
 @media (max-width: 576px) {
   section .layout__image .box-image.boximg4.boximg-animation {
-    -webkit-animation: backInRight 0.5s 0.2s ease both;
-            animation: backInRight 0.5s 0.2s ease both;
+    -webkit-animation: backInRight 0.9s ease both;
+            animation: backInRight 0.9s ease both;
   }
 }
 
@@ -1530,8 +1530,8 @@ section .layout__image .box-image:hover .btn {
 
 @media (max-width: 576px) {
   section .layout__image .box-image.boximg5.boximg-animation {
-    -webkit-animation: backInLeft 0.5s 0.3s ease;
-            animation: backInLeft 0.5s 0.3s ease;
+    -webkit-animation: backInLeft 0.9s ease;
+            animation: backInLeft 0.9s ease;
   }
 }
 
@@ -1562,8 +1562,8 @@ section .layout__image .box-image:hover .btn {
 
 @media (max-width: 576px) {
   section .layout__image .box-image.boximg6.boximg-animation {
-    -webkit-animation: backInRight 0.5s 0.2s ease both;
-            animation: backInRight 0.5s 0.2s ease both;
+    -webkit-animation: backInRight 0.9s ease both;
+            animation: backInRight 0.9s ease both;
   }
 }
 
@@ -1600,8 +1600,8 @@ section .layout__image .box-image:hover .btn {
 
 @media (max-width: 576px) {
   section .layout__image .imgtall .boximg3.boximg-animation {
-    -webkit-animation: backInLeft 0.5s 0.3s ease;
-            animation: backInLeft 0.5s 0.3s ease;
+    -webkit-animation: backInLeft 0.9s ease;
+            animation: backInLeft 0.9s ease;
   }
 }
 

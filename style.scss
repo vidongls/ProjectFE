@@ -762,7 +762,7 @@ section {
           }
           &.boximg-animation {
             @include xs {
-              animation: backInLeft 0.5s 0.3s ease;
+              animation: backInLeft 0.9s ease;
             }
             @include sm {
               animation: backInLeft 0.5s 0.2s ease both;
@@ -789,7 +789,7 @@ section {
         &.boximg2 {
           &.boximg-animation {
             @include xs {
-              animation: backInRight 0.5s 0.2s ease both;
+              animation: backInRight 0.9s ease both;
             }
             @include sm {
               animation: backInLeft 0.5s 0.3s ease both;
@@ -799,7 +799,7 @@ section {
         &.boximg4 {
           &.boximg-animation {
             @include xs {
-              animation: backInRight 0.5s 0.2s ease both;
+              animation: backInRight 0.9s ease both;
             }
             @include sm {
               animation: backInRight 0.5s 0.3s ease both;
@@ -825,7 +825,7 @@ section {
         &.boximg5 {
           &.boximg-animation {
             @include xs {
-              animation: backInLeft 0.5s 0.3s ease;
+              animation: backInLeft 0.9s ease;
             }
             @include sm {
               animation: backInRight 0.5s 0.3s ease both;
@@ -844,7 +844,7 @@ section {
           }
           &.boximg-animation {
             @include xs {
-              animation: backInRight 0.5s 0.2s ease both;
+              animation: backInRight 0.9s ease both;
             }
             @include sm {
               animation: backInUp 0.5s 0.3s ease both;
@@ -876,7 +876,7 @@ section {
         .boximg3 {
           &.boximg-animation {
             @include xs {
-              animation: backInLeft 0.5s 0.3s ease;
+              animation: backInLeft 0.9s ease;
             }
             @include sm {
               animation: backInDown 0.5s 0.4s ease both;

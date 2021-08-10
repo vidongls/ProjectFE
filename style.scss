@@ -732,6 +732,7 @@ section {
         overflow: hidden;
         position: relative;
         font-size: 0;
+        cursor: pointer;
         img {
           width: 100%;
           height: 100%;
@@ -757,7 +758,7 @@ section {
           @include sm {
             margin-bottom: 10px;
           }
-          @include md {
+          @include lg {
             margin-bottom: 15px;
           }
           &.boximg-animation {
@@ -765,7 +766,7 @@ section {
               animation: backInLeft 0.9s ease;
             }
             @include sm {
-              animation: backInLeft 0.5s 0.2s ease both;
+              animation: backInLeft 1.1s 0.2s ease both;
             }
           }
 
@@ -789,20 +790,20 @@ section {
         &.boximg2 {
           &.boximg-animation {
             @include xs {
-              animation: backInRight 0.9s ease both;
+              animation: backInRight 1.1s ease both;
             }
             @include sm {
-              animation: backInLeft 0.5s 0.3s ease both;
+              animation: backInLeft 1.1s 0.3s ease both;
             }
           }
         }
         &.boximg4 {
           &.boximg-animation {
             @include xs {
-              animation: backInRight 0.9s ease both;
+              animation: backInRight 1.1s ease both;
             }
             @include sm {
-              animation: backInRight 0.5s 0.3s ease both;
+              animation: backInRight 1.1s 0.3s ease both;
             }
           }
           @keyframes backInRight {
@@ -825,11 +826,14 @@ section {
         &.boximg5 {
           &.boximg-animation {
             @include xs {
-              animation: backInLeft 0.9s ease;
+              animation: backInLeft 1.1s ease;
             }
             @include sm {
-              animation: backInRight 0.5s 0.3s ease both;
+              animation: backInRight 1.1s 0.3s ease both;
             }
+          }
+          @include xl {
+            margin-left: 3px;
           }
         }
         &.boximg6 {
@@ -842,12 +846,15 @@ section {
           @include md {
             margin-top: 5px;
           }
+          @include lg {
+            margin-top: 10px;
+          }
           &.boximg-animation {
             @include xs {
-              animation: backInRight 0.9s ease both;
+              animation: backInRight 1.1s ease both;
             }
             @include sm {
-              animation: backInUp 0.5s 0.3s ease both;
+              animation: backInUp 1.1s 0.3s ease both;
             }
           }
 
@@ -873,13 +880,18 @@ section {
         @include sm {
           padding: 5px 5px;
         }
+        @include lg {
+          padding: 5px 10px;
+        }
+
         .boximg3 {
+          height: 100%;
           &.boximg-animation {
             @include xs {
-              animation: backInLeft 0.9s ease;
+              animation: backInLeft 1.1s ease;
             }
             @include sm {
-              animation: backInDown 0.5s 0.4s ease both;
+              animation: backInDown 1.1s 0.4s ease both;
             }
           }
         }
@@ -901,6 +913,13 @@ section {
           }
         }
       }
+      &-boximg1 {
+        @include md {
+          .col-sm-6 {
+            padding-bottom: 0;
+          }
+        }
+      }
       &-button {
         position: absolute;
         width: 100%;
@@ -919,6 +938,39 @@ section {
           font-size: 16px;
         }
       }
+    }
+  }
+
+  .products {
+    margin-top: 50px;
+    &__header {
+      padding-bottom: 36px;
+      flex-direction: column;
+      &-title {
+        h2 {
+          font-size: 24px;
+          line-height: 31px;
+          font-weight: 500;
+          a {
+            transition: color 0.2s linear;
+            color: #191919;
+            &:hover {
+              color: #007bff;
+            }
+          }
+        }
+      }
+      &-description {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+        color: #191919;
+        margin-top: 2px;
+      }
+    }
+    &__list {
+      height: 1500px;
+      background-color: #f8353e;
     }
   }
 }

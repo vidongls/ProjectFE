@@ -21,11 +21,6 @@ function activeNavMobile() {
     e.preventDefault()
     navMoblie.classList.remove('active')
   })
-
-  // $(document).on('click', '.btnNav-close', function (e) {
-  //   e.preventDefault()
-  //   navMoblie.classList.remove('active')
-  // })
 }
 
 //Slider menu women
@@ -142,7 +137,6 @@ function animationScroll() {
       })
     })
   })
-
   observer.observe(document.querySelector('.layout__image-boximg1'))
   observer.observe(document.querySelector('.layout__image-boximg2'))
 }

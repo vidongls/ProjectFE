@@ -93,7 +93,7 @@ function sliderHeader() {
     <div class="item flex j-center a-center">
       <div class="slider__image ${val.classCheck}">
         <img src="${val.urlImage}" alt="" />
-        <video autoplay="true" loop>
+        <video loop>
               <source src="${val.urlImage}" type="video/mp4" />
         </video>
       </div>
@@ -125,7 +125,6 @@ function animationScroll() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const square = entry.target.querySelectorAll('.box-image')
-
       if (entry.isIntersecting) {
         square.forEach((el) => {
           el.classList.add('boximg-animation')

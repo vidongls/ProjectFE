@@ -1144,6 +1144,9 @@ body {
               }
             }
           }
+          &.new {
+            background: inherit;
+          }
         }
       }
       .pattern {

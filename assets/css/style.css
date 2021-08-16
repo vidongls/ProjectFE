@@ -1965,6 +1965,10 @@ body {
   text-decoration: line-through;
 }
 
+.products__list-description .text-box .itemprice.new {
+  background: inherit;
+}
+
 .products__list-description .pattern {
   margin-bottom: 10px;
   width: 100%;

@@ -3,6 +3,7 @@ function start() {
   templateMenuSlider()
   sliderHeader()
   animationScroll()
+  scrollAddClass()
 }
 start()
 
@@ -155,7 +156,7 @@ function renderProductsBestSeller() {
                     <img src="${val.urlImage}" alt="" />
                     <div class="label ${val.status}">${val.status}</div>
                     <div class="optionbox flex">
-                      <a href="" class="active"><i class="ph-eye"></i></a>
+                      <a href=""><i class="ph-eye"></i></a>
                       <a href=""><i class="ph-heart-straight"></i></a>
                       <a href=""><i class="ph-git-diff"></i></a>
                     </div>
@@ -221,15 +222,16 @@ function renderProductsBestSeller() {
                       </ul>
                     </div>
                     <div class="products__list-size flex a-center j-center">
-                      <ul class="flex a-center j-center">               
+                      <ul id='em' class="flex a-center j-center">               
                       </ul>
                     </div>
-                    <div class="products__list-itembutton">
+                   <div class="products__list-itembutton">
                       <div class="btn">
                         <span> <i class="ph-handbag"></i>ADD TO CART</span>
                       </div>
-                    </div>
                   </div>
+                  </div> 
+                  
                 </div>
               </div>
     
@@ -248,3 +250,14 @@ function renderProductsBestSeller() {
 }
 // document.querySelector('.products__list-size ul').firstChild.className('active')
 renderProductsBestSeller()
+
+function scrollAddClass() {
+  const navbar = document.querySelector('.header')
+  window.addEventListener('scroll', () => {
+    if (document.documentElement.scrollTop > 0) {
+      navbar.classList.add('fixed')
+    } else {
+      navbar.classList.remove('fixed')
+    }
+  })
+}

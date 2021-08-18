@@ -11,6 +11,13 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 5,
     size: [],
+    urlImage2: [
+      'assets/img/img01.jpg',
+      'assets/img/img1.1.jpg',
+      'assets/img/img1.2.jpg',
+      'assets/img/img1.3.jpg',
+      'assets/img/img1.4.jpg',
+    ],
   },
   {
     id: 1,
@@ -24,6 +31,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 5,
     size: [],
+    urlImage2: ['assets/img/img02.jpg', 'assets/img/img2.1.jpg'],
   },
   {
     id: 2,
@@ -37,6 +45,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 5,
     size: [],
+    urlImage2: ['assets/img/img03.jpg', 'assets/img/img3.1.jpg'],
   },
   {
     id: 3,
@@ -51,6 +60,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 5,
     size: [],
+    urlImage2: ['assets/img/img04.jpg', 'assets/img/img4.1.jpg'],
   },
   {
     id: 4,
@@ -64,6 +74,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 5,
     size: ['S', 'M', 'L'],
+    urlImage2: ['assets/img/img05.jpg', 'assets/img/img5.1.jpg'],
   },
   {
     id: 5,
@@ -76,6 +87,11 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 0,
     size: [],
+    urlImage2: [
+      'assets/img/img06.jpg',
+      'assets/img/img6.1.jpg',
+      'assets/img/img6.2.jpg',
+    ],
   },
   {
     id: 6,
@@ -88,6 +104,11 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 0,
     size: ['S', 'M', 'L', 'XL'],
+    urlImage2: [
+      'assets/img/img07.jpg',
+      'assets/img/img7.1..jpg',
+      'assets/img/img7.2.jpg',
+    ],
   },
   {
     id: 7,
@@ -100,6 +121,11 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'best-sellers',
     starNumber: 0,
     size: ['XS', 'XL', 'XXL', 'XXL'],
+    urlImage2: [
+      'assets/img/img08.jpg',
+      'assets/img/img8.1.jpg',
+      'assets/img/img8.2.jpg',
+    ],
   },
   {
     id: 8,
@@ -112,6 +138,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 0,
     size: [],
+    urlImage2: [],
   },
   {
     id: 9,
@@ -125,6 +152,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 5,
     size: [],
+    urlImage2: [],
   },
   {
     id: 10,
@@ -137,6 +165,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 0,
     size: [],
+    urlImage2: [],
   },
   {
     id: 11,
@@ -150,6 +179,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 5,
     size: [],
+    urlImage2: [],
   },
   {
     id: 12,
@@ -163,6 +193,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 5,
     size: [],
+    urlImage2: [],
   },
   {
     id: 13,
@@ -176,6 +207,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 5,
     size: [],
+    urlImage2: [],
   },
   {
     id: 14,
@@ -189,6 +221,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 0,
     size: [],
+    urlImage2: [],
   },
   {
     id: 15,
@@ -202,5 +235,6 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     category: 'trending',
     starNumber: 5,
     size: [],
+    urlImage2: [],
   },
 ]

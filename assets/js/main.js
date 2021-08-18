@@ -150,7 +150,7 @@ function renderProductsBestSeller() {
 
   newProducts.forEach((val) => {
     let template = `
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
                 <div class="products__list-item flex a-center j-center">
                   <div class="products__list-item-imagebox">
                     <img src="${val.urlImage}" alt="" />
@@ -193,32 +193,7 @@ function renderProductsBestSeller() {
                       </div>
                     </div>
                     <div class="pattern">
-                      <ul class="flex j-center a-center">
-                        <li class="active">
-                          <a href=""
-                            ><img src="assets/img/img02.jpg" alt=""
-                          /></a>
-                        </li>
-                        <li>
-                          <a href=""
-                            ><img src="assets/img/img02.jpg" alt=""
-                          /></a>
-                        </li>
-                        <li>
-                          <a href=""
-                            ><img src="assets/img/img02.jpg" alt=""
-                          /></a>
-                        </li>
-                        <li>
-                          <a href=""
-                            ><img src="assets/img/img02.jpg" alt=""
-                          /></a>
-                        </li>
-                        <li>
-                          <a href=""
-                            ><img src="assets/img/img02.jpg" alt=""
-                          /></a>
-                        </li>
+                      <ul class="flex j-center a-center">                                       
                       </ul>
                     </div>
                     <div class="products__list-size flex a-center j-center">
@@ -246,11 +221,22 @@ function renderProductsBestSeller() {
         .querySelectorAll('.products__list-size ul')
         [val.id].insertAdjacentHTML('beforeend', template2)
     })
+    val.urlImage2.forEach(function (el) {
+      let template2 = `<li>
+        <a href=""><img src="${el}" alt=""/></a>
+      </li>`
+      document
+        .querySelectorAll('.pattern ul')
+        [val.id].insertAdjacentHTML('beforeend', template2)
+    })
+    document
+      .querySelectorAll('.pattern ul li:first-child a')
+      [val.id].classList.add('active')
   })
 }
-// document.querySelector('.products__list-size ul').firstChild.className('active')
 renderProductsBestSeller()
 
+//Scroll to add class
 function scrollAddClass() {
   const navbar = document.querySelector('.header')
   window.addEventListener('scroll', () => {
@@ -261,3 +247,24 @@ function scrollAddClass() {
     }
   })
 }
+
+//Add class handlerclick
+
+function addClassHandler() {
+  let btnPatern = document.querySelectorAll('.pattern ul')
+
+  btnPatern.forEach((btn) => {
+    btn.querySelectorAll('li').forEach((li) => {
+      li.addEventListener('click', (e) => {
+        btn.querySelectorAll('li a').forEach((a) => {
+          a.classList.remove('active')
+        })
+        e.preventDefault()
+        if (!e.target.classList.contains('active')) {
+          e.target.classList.add('active')
+        }
+      })
+    })
+  })
+}
+addClassHandler()

@@ -990,12 +990,13 @@ body {
       cursor: pointer;
 
       @include xs {
-        padding: 0px 15px;
+        margin-top: 48px;
+        padding: 0px 2px;
       }
       @include md {
         margin-right: 5px;
       }
-      margin-top: 36px;
+
       position: relative;
 
       &-imagebox {
@@ -1035,6 +1036,10 @@ body {
           flex-direction: column;
           transition: all 0.3s ease;
           display: none;
+          @include xs {
+            top: 0px;
+            right: 5px;
+          }
           a {
             display: flex;
             align-items: center;
@@ -1045,6 +1050,10 @@ body {
             color: #191919;
             background: rgba(255, 255, 255, 0.9);
             margin-top: 10px;
+            @include xs {
+              width: 32px;
+              height: 32px;
+            }
             &:hover {
               background-color: rgba(40, 121, 254, 0.9);
               color: #fff;
@@ -1058,11 +1067,15 @@ body {
       }
       &:hover {
         .products__list-description {
-          transform: translateY(-41px);
+          @include sm {
+            transform: translateY(-41px);
+          }
         }
         .products__list-itembutton {
           // transition: transform 0.5s ease;
-          animation: slide-up 0.4s ease-out;
+          @include sm {
+            animation: slide-up 0.4s ease-out;
+          }
           @keyframes slide-up {
             0% {
               opacity: 0;
@@ -1097,7 +1110,8 @@ body {
       bottom: 0;
       position: relative;
       @include xs {
-        transform: translateY(-51px);
+        padding-top: 10px;
+        transform: translateY(-32px);
       }
       // padding-bottom: 20px;
       background: #fff;
@@ -1105,6 +1119,9 @@ body {
         width: 100%;
         margin-bottom: 10px;
         flex-direction: column;
+        @include xs {
+          margin-bottom: 5px;
+        }
         .title {
           font-size: 12px;
           line-height: 19px;
@@ -1170,6 +1187,7 @@ body {
           object-fit: cover;
         }
         ul {
+          width: 100%;
           li {
             position: relative;
             margin-left: 2px;
@@ -1195,12 +1213,11 @@ body {
               }
             }
           }
-          & li:nth-child(5) {
+          li:nth-child(5) {
             @include xs {
               display: none;
             }
           }
-
           a.active {
             &::after {
               content: '';
@@ -1222,13 +1239,13 @@ body {
     }
     &-size {
       width: 100%;
-      padding-bottom: 10px;
+      // padding-bottom: 10px;
       // position: absolute;
       // bottom: -10px;
       // bottom: 0;
-
       li {
         margin-right: 5px;
+        margin-bottom: 10px;
         a {
           background-color: #f7f8fa;
           padding: 0 5px;
@@ -1244,10 +1261,10 @@ body {
           }
         }
       }
-      li.active {
-        a {
+      li {
+        a.active {
           background-color: #2879fe;
-          color: #fff;
+          color: #fff !important;
         }
       }
     }
@@ -1268,12 +1285,19 @@ body {
         padding: 3px 16px 9px;
         font-weight: 400;
         font-size: 14px;
+        @include xs {
+          font-weight: 500;
+          font-size: 10px;
+        }
         i {
           font-size: 20px;
           top: 4px;
           margin-right: 6px;
           font-weight: 400;
           position: relative;
+          @include xs {
+            font-size: 16px;
+          }
         }
         &:hover {
           background-color: #2267d8;

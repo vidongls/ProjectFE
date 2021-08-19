@@ -197,7 +197,7 @@ function renderProductsBestSeller() {
                       </ul>
                     </div>
                     <div class="products__list-size flex a-center j-center">
-                      <ul id='em' class="flex a-center j-center">               
+                      <ul class="flex a-center j-center">               
                       </ul>
                     </div>
                    <div class="products__list-itembutton">
@@ -212,7 +212,7 @@ function renderProductsBestSeller() {
     
     `
     document
-      .querySelector('.productbestseller .products__list-boxitem')
+      .querySelector('.products__list-boxitem[data-category="best-sellers"]')
       .insertAdjacentHTML('beforeend', template)
 
     val.size.forEach(function (el) {
@@ -252,8 +252,24 @@ function scrollAddClass() {
 
 function addClassHandler() {
   let btnPatern = document.querySelectorAll('.pattern ul')
-
+  let btnSize = document.querySelectorAll('.products__list-size ul')
+  //Add active Pattern class
   btnPatern.forEach((btn) => {
+    btn.querySelectorAll('li').forEach((li) => {
+      li.addEventListener('click', (e) => {
+        btn.querySelectorAll('li a').forEach((a) => {
+          a.classList.remove('active')
+        })
+        e.preventDefault()
+        if (!e.target.classList.contains('active')) {
+          e.target.classList.add('active')
+        }
+      })
+    })
+  })
+
+  //Add active Size class
+  btnSize.forEach((btn) => {
     btn.querySelectorAll('li').forEach((li) => {
       li.addEventListener('click', (e) => {
         btn.querySelectorAll('li a').forEach((a) => {

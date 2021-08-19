@@ -208,9 +208,7 @@ function renderProductsBestSeller() {
                   </div> 
                   
                 </div>
-              </div>
-    
-    `
+              </div>`
     document
       .querySelector('.products__list-boxitem[data-category="best-sellers"]')
       .insertAdjacentHTML('beforeend', template)
@@ -253,6 +251,7 @@ function scrollAddClass() {
 function addClassHandler() {
   let btnPatern = document.querySelectorAll('.pattern ul')
   let btnSize = document.querySelectorAll('.products__list-size ul')
+
   //Add active Pattern class
   btnPatern.forEach((btn) => {
     btn.querySelectorAll('li').forEach((li) => {

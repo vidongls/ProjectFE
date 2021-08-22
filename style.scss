@@ -974,7 +974,6 @@ body {
     }
   }
   &__list {
-    position: relative;
     &-boxitem {
       .col-lg-3 {
         &:nth-child(4) {
@@ -991,20 +990,20 @@ body {
     }
     &-item {
       cursor: pointer;
-
       @include xs {
-        margin-top: 26px;
+        // margin-top: 26px;
         padding: 0px 2px;
       }
       @include md {
         margin-right: 5px;
+        // margin-bottom: 24px;
       }
-
       position: relative;
 
       &-imagebox {
         position: relative;
-
+        width: 100%;
+        height: 100%;
         img {
           width: 100%;
           height: 100%;
@@ -1107,21 +1106,23 @@ body {
     }
     &-description {
       transition: all 0.3s ease;
-      padding: 16px 0px;
-      padding-bottom: 10px;
+      padding: 24px 0px;
       z-index: 2;
-      height: 199px;
-      bottom: 0;
-      position: relative;
+      height: 193px;
+      width: 100%;
+      margin-bottom: 15px;
       @include xs {
         padding-top: 10px;
+        height: 184px;
+        padding-bottom: 0;
+        // margin-bottom: 0;
+        // height: 199px;
         transform: translateY(-32px);
       }
       // padding-bottom: 20px;
       background: #fff;
       .text-box {
         width: 100%;
-        margin-bottom: 10px;
         flex-direction: column;
         @include xs {
           margin-bottom: 5px;
@@ -1192,7 +1193,9 @@ body {
         }
       }
       .pattern {
+        // padding: 10px 0px;
         margin-bottom: 10px;
+        margin-top: 5px;
         width: 100%;
         img {
           width: 100%;
@@ -1226,7 +1229,8 @@ body {
               }
             }
           }
-          li:nth-child(5) {
+          li:nth-child(5),
+          li:nth-child(4) {
             @include xs {
               display: none;
             }
@@ -1252,13 +1256,11 @@ body {
     }
     &-size {
       width: 100%;
-      // padding-bottom: 10px;
-      // position: absolute;
-      // bottom: -10px;
-      // bottom: 0;
+
+      // margin-bottom: 10px;
       li {
         margin-right: 5px;
-        margin-bottom: 10px;
+
         a {
           background-color: #f7f8fa;
           padding: 0 5px;
@@ -1283,24 +1285,21 @@ body {
     }
     &-itembutton {
       display: none;
+      margin-top: 6px;
       @include xs {
+        margin-top: 5px;
         display: block;
       }
-      // margin-top: 10px;
-      // position: absolute;
       @include sm {
         transition: all 0.1s ease;
-        // transform: translateY(40px);
         transform: translateX(0px);
       }
-      // bottom: -5px;
       .btn {
         padding: 3px 16px 9px;
         font-weight: 400;
         font-size: 14px;
         @include xs {
           font-weight: 500;
-
           font-size: 12px;
           padding-top: 6px;
         }
@@ -1323,7 +1322,124 @@ body {
   }
 }
 
+.advertise {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  @include xs {
+    padding: 0 10px;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  @include sm {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include md {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  &__box {
+    cursor: pointer;
+    position: relative;
+    &.animate {
+      @include xs {
+        animation: backInUp 1.1s ease;
+      }
+      @include sm {
+        animation: backInUp 1.1s ease;
+      }
+      @include md {
+        animation: backInLeft 1.1s ease;
+      }
+    }
+    &:hover {
+      .advertise__box-image {
+        img {
+          transform: scale3d(1.1, 1.1, 1);
+          z-index: 10;
+        }
+      }
+
+      .btn {
+        z-index: 30;
+        background: rgba(40, 121, 254, 0.9);
+        color: #f6f6f6;
+      }
+    }
+    &-image {
+      overflow: hidden;
+      position: relative;
+      font-size: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+    }
+    &-content {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
+      &-text {
+        background-color: #fff;
+        padding: 16px 40px;
+        @include xs {
+          padding: 20px 40px;
+        }
+        @include sm {
+          padding: 16px 24px;
+        }
+
+        @include xl {
+          padding: 16px 40px;
+        }
+        border-radius: 6px;
+        opacity: 0.9;
+        h3 {
+          font-size: 15px;
+          font-weight: 500;
+          color: #191919;
+          line-height: 22px;
+          // @include sm {
+          //   max-width: 190px;
+          // }
+          // @include md {
+          //   max-width: 220px;
+          // }
+          // @include lg {
+          //   width: 100%;
+          // }
+        }
+        h2 {
+          font-size: 26px;
+          font-weight: 500;
+          @include xs {
+            font-size: 16px;
+          }
+          @include sm {
+            font-size: 20px;
+          }
+
+          @include xl {
+            font-size: 26px;
+          }
+        }
+        span.adblue {
+          color: #2879fe;
+        }
+      }
+    }
+  }
+}
 .blog {
+  padding: 50px 0;
   &__header {
     padding-bottom: 24px;
     flex-direction: column;

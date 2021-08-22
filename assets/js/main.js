@@ -126,19 +126,27 @@ function animationScroll() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       const square = entry.target.querySelectorAll('.box-image')
+      const adbox = entry.target.querySelectorAll('.advertise__box')
       if (entry.isIntersecting) {
         square.forEach((el) => {
           el.classList.add('boximg-animation')
+        })
+        adbox.forEach((el) => {
+          el.classList.add('animate')
         })
         return
       }
       square.forEach((el) => {
         el.classList.remove('boximg-animation')
       })
+      adbox.forEach((el) => {
+        el.classList.remove('animate')
+      })
     })
   })
   observer.observe(document.querySelector('.layout__image-boximg1'))
   observer.observe(document.querySelector('.layout__image-boximg2'))
+  observer.observe(document.querySelector('.advertise'))
 }
 //RenderSize
 

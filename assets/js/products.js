@@ -200,7 +200,7 @@ const products = JSON.parse(localStorage.getItem('products')) || [
     urlImage: 'assets/img/img15.jpg',
     name: 'Relaxed Painted Oxford Shirt',
     price: '140',
-    sale: '180',
+    sale: '$180.00',
     status: 'sale',
     rate: 'rated',
     brand: 'GAP',

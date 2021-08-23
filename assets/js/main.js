@@ -4,6 +4,7 @@ function start() {
   sliderHeader()
   animationScroll()
   scrollAddClass()
+  addComment()
 }
 start()
 
@@ -155,7 +156,9 @@ function renderProductsBestSeller() {
   let newProducts = products.filter((product) => {
     return product.category === 'best-sellers'
   })
-
+  let newProducts2 = products.filter((product) => {
+    return product.category === 'trending'
+  })
   newProducts.forEach((val) => {
     let template = `
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
@@ -239,6 +242,71 @@ function renderProductsBestSeller() {
       .querySelectorAll('.pattern ul li:first-child a')
       [val.id].classList.add('active')
   })
+  newProducts2.forEach((val) => {
+    let template = `
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                <div class="products__list-item flex a-center j-center">
+                  <div class="products__list-item-imagebox">
+                    <img src="${val.urlImage}" alt="" />
+                    <div class="label ${val.status}">${val.status}</div>
+                    <div class="optionbox flex">
+                      <a href=""><i class="ph-eye"></i></a>
+                      <a href=""><i class="ph-heart-straight"></i></a>
+                      <a href=""><i class="ph-git-diff"></i></a>
+                    </div>
+                  </div>
+                  <div
+                    class="products__list-description  trending flex a-center j-center"
+                  >
+                    <div class="text-box flex a-center j-center">
+                      <a class="title">${val.brand}</a>
+                      <span class="rating ${val.rate}">
+                        <div class="rate">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <div class="unrate">
+                          <i class="ph-star"></i>
+                          <i class="ph-star"></i>
+                          <i class="ph-star"></i>
+                          <i class="ph-star"></i>
+                          <i class="ph-star"></i>
+                        </div>
+                      </span>
+                      <div class="itemname">
+                        <a href="">${val.name}</a>
+                      </div>
+                      <div class="itemprice ${val.status}">
+                        <span>$${val.price}.00</span>
+                        <span class="itemprice-sale">
+                          <a href="">${val.sale}</a>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="pattern">
+                      <ul class="flex j-center a-center">                                       
+                      </ul>
+                    </div>
+                    <div class="products__list-size flex a-center j-center">
+                      <ul class="flex a-center j-center">               
+                      </ul>
+                    </div>
+                   <div class="products__list-itembutton">
+                      <div class="btn">
+                        <span> <i class="ph-handbag"></i>ADD TO CART</span>
+                      </div>
+                  </div>
+                  </div> 
+                  
+                </div>
+              </div>`
+    document
+      .querySelector('.products__list-boxitem[data-category="trending"]')
+      .insertAdjacentHTML('beforeend', template)
+  })
 }
 renderProductsBestSeller()
 
@@ -291,3 +359,61 @@ function addClassHandler() {
   })
 }
 addClassHandler()
+
+//List comments
+
+function addComment() {
+  const comments = [
+    {
+      urlImage: 'assets/img/cm1.jpg',
+      tag: 'Ladies',
+      title: 'Catalogue Mode',
+      content:
+        'It is a long established fact that by the readable contentof a page when looking at its layout.',
+      authorName: 'Diego Lopez',
+      quantity: '25',
+    },
+    {
+      urlImage: 'assets/img/cm2.jpg',
+      tag: 'WOKIEE',
+      title: 'COUNTDOWN TIMEZONE',
+      content:
+        'It is a long established fact that by the readable contentof a page when looking at its layout.',
+      authorName: 'Diego Lopez',
+      quantity: '17',
+    },
+    {
+      urlImage: 'assets/img/cm3.jpg',
+      tag: 'PROMO',
+      title: 'PURCHASED PROMO SECTION',
+      content:
+        'It is a long established fact that by the readable contentof a page when looking at its layout.',
+      authorName: 'Diego Lopez',
+      quantity: '10',
+    },
+  ]
+  comments.forEach((val) => {
+    let template = `
+      <div class="blog__list-item">
+        <div class="blog__list-item-image">
+          <img src="${val.urlImage}" alt="" />
+        </div>
+        <div class="blog__list-item-content">
+          <div class="tag">${val.tag}</div>
+          <div class="title">${val.title} Mode</div>
+          <div class="content">${val.content}</div>
+          <div class="author flex a-center j-center">
+            <div class="author-name">
+              by <span>${val.authorName}</span>on June 21, 2018
+            </div>
+            <div class="author-quantity">
+              <i class="ph-chat-circle"></i> ${val.quantity}
+            </div>
+          </div>
+        </div>
+      </div>`
+    document
+      .querySelector('.blog__list .container')
+      .insertAdjacentHTML('beforeend', template)
+  })
+}

@@ -5,6 +5,7 @@ function start() {
   animationScroll()
   scrollAddClass()
   addComment()
+  listImageLinks()
 }
 start()
 
@@ -361,7 +362,6 @@ function addClassHandler() {
 addClassHandler()
 
 //List comments
-
 function addComment() {
   const comments = [
     {
@@ -404,7 +404,7 @@ function addComment() {
           <div class="content">${val.content}</div>
           <div class="author flex a-center j-center">
             <div class="author-name">
-              by <span>${val.authorName}</span>on June 21, 2018
+              by <span>${val.authorName}</span> on June 21, 2018
             </div>
             <div class="author-quantity">
               <i class="ph-chat-circle"></i> ${val.quantity}
@@ -414,6 +414,49 @@ function addComment() {
       </div>`
     document
       .querySelector('.blog__list .container')
+      .insertAdjacentHTML('beforeend', template)
+  })
+}
+
+//List image links
+function listImageLinks() {
+  let listimages = [
+    {
+      id: 0,
+      urlImage: 'assets/img/ig1.jpg',
+    },
+    {
+      id: 1,
+      urlImage: 'assets/img/ig2.jpg',
+    },
+    {
+      id: 2,
+      urlImage: 'assets/img/ig3.jpg',
+    },
+    {
+      id: 3,
+      urlImage: 'assets/img/ig4.jpg',
+    },
+    {
+      id: 4,
+      urlImage: 'assets/img/ig5.jpg',
+    },
+    {
+      id: 5,
+      urlImage: 'assets/img/ig6.jpg',
+    },
+  ]
+  listimages.forEach((val) => {
+    let template = `
+    <div class="image__list-item">
+      <img src="${val.urlImage}" alt="" />
+      <div class="image__list-item-wrapper">
+        <i class="ph-instagram-logo"></i>
+      </div>
+    </div>
+    `
+    document
+      .querySelector('.image__list')
       .insertAdjacentHTML('beforeend', template)
   })
 }

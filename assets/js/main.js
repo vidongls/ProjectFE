@@ -328,7 +328,7 @@ function scrollAddClass() {
 function addClassHandler() {
   let btnPatern = document.querySelectorAll('.pattern ul')
   let btnSize = document.querySelectorAll('.products__list-size ul')
-
+  let btnMenuFooter = document.querySelectorAll('.footer__item')
   //Add active Pattern class
   btnPatern.forEach((btn) => {
     btn.querySelectorAll('li').forEach((li) => {
@@ -356,6 +356,19 @@ function addClassHandler() {
           e.target.classList.add('active')
         }
       })
+    })
+  })
+
+  btnMenuFooter.forEach((btn) => {
+    btn.classList.remove('active')
+    btn.addEventListener('click', (e) => {
+      btnMenuFooter.forEach((a) => {})
+      e.preventDefault()
+      if (!btn.classList.contains('active')) {
+        btn.classList.add('active')
+      } else {
+        btn.classList.remove('active')
+      }
     })
   })
 }

@@ -952,6 +952,7 @@ body {
   }
   &__header {
     padding-bottom: 40px;
+    padding-top: 30px;
     flex-direction: column;
     @include xs {
       padding-bottom: 13px;
@@ -1673,7 +1674,7 @@ body {
     }
     @include sm {
       grid-template-columns: repeat(1, 1fr);
-      padding-left: 30px;
+      padding-left: 70px;
       grid-gap: 30px;
     }
     @include md {
@@ -1743,7 +1744,7 @@ body {
       padding: auto;
     }
     @include xl {
-      padding: auto;
+      padding: 0;
     }
   }
   &__left {
@@ -1815,6 +1816,166 @@ body {
         i {
           transition: all 0.3s linear;
           color: #303030;
+        }
+      }
+    }
+  }
+}
+.footer {
+  background: #f7f8fa;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 32px 0px;
+    grid-gap: 10px;
+
+    @include xs {
+      padding-top: 7px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include sm {
+      padding-top: 7px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include md {
+      grid-gap: 30px;
+      padding: 32px 0px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .container {
+    @include xs {
+      padding: 0px 30px;
+    }
+    @include sm {
+      padding: 0px 70px;
+    }
+    @include md {
+      padding: 0px 50px;
+    }
+    @include lg {
+      padding: 0 30px;
+    }
+    @include xl {
+      padding: 0;
+    }
+  }
+  &__item {
+    @include xs {
+      padding-bottom: 6px;
+      margin-top: 24px;
+      border-bottom: 1px solid #e9e7e7;
+      cursor: pointer;
+      &:hover {
+        .footer__item-title {
+          color: #03a9f5;
+        }
+        .plus {
+          color: #777;
+        }
+      }
+    }
+    @include sm {
+      padding-bottom: 6px;
+      cursor: pointer;
+      margin-top: 24px;
+      border-bottom: 1px solid #e9e7e7;
+      &:hover {
+        .footer__item-title {
+          color: #03a9f5;
+        }
+        .plus {
+          color: #777;
+        }
+      }
+    }
+    @include md {
+      margin-top: 0px;
+      padding-bottom: 0;
+      border: 0;
+    }
+    &.active {
+      .footer__item-content {
+        display: block;
+      }
+      .plus {
+        transform: rotate(-45deg);
+      }
+    }
+    &-title {
+      position: relative;
+      color: #191919;
+      padding-bottom: 15px;
+      font-size: 16px;
+      font-weight: 500;
+      @include xs {
+        padding-bottom: 8px;
+      }
+      @include sm {
+        padding-bottom: 5px;
+      }
+      @include lg {
+        padding-bottom: 15px;
+      }
+
+      .plus {
+        position: absolute;
+        transition: all 0.3s ease;
+        font-size: 24px;
+        font-weight: 300;
+        right: 0;
+        @include xs {
+          display: inline-block;
+        }
+        @include sm {
+          display: inline-block;
+        }
+        @include md {
+          display: none;
+        }
+      }
+    }
+    &-content {
+      @include xs {
+        display: none;
+      }
+      @include sm {
+        display: none;
+      }
+      @include md {
+        display: block;
+      }
+      font-size: 14px;
+      color: #777;
+      ul {
+        li {
+          a {
+            cursor: pointer;
+            color: #888;
+            padding: 3px 0 3px;
+            display: inline-block;
+            &:hover {
+              color: #03a9f5;
+            }
+          }
+        }
+      }
+      address {
+        font-style: normal;
+        p {
+          margin-top: 3px;
+          font-size: 13px;
+          span {
+            color: #191919;
+            font-size: 14px;
+            font-weight: 300;
+          }
+          a {
+            color: #007bff;
+          }
         }
       }
     }

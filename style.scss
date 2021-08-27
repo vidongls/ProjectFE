@@ -1707,8 +1707,20 @@ body {
     }
     &-text {
       padding-left: 20px;
+
       @include xs {
         padding-left: 10px;
+        max-width: 260px;
+      }
+
+      @include sm {
+        max-width: 260px;
+      }
+      @include lg {
+        max-width: 230px;
+      }
+      @include xl {
+        max-width: 320px;
       }
       h4 {
         text-transform: uppercase;
@@ -1838,11 +1850,16 @@ body {
       grid-template-columns: repeat(1, 1fr);
     }
     @include md {
+      grid-gap: 20px;
+      padding: 32px 0px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @include lg {
       grid-gap: 30px;
       padding: 32px 0px;
       grid-template-columns: repeat(2, 1fr);
     }
-    @include lg {
+    @include xl {
       grid-template-columns: repeat(4, 1fr);
     }
   }
@@ -1892,7 +1909,7 @@ body {
         }
       }
     }
-    @include md {
+    @include lg {
       margin-top: 0px;
       padding-bottom: 0;
       border: 0;
@@ -1933,7 +1950,7 @@ body {
         @include sm {
           display: inline-block;
         }
-        @include md {
+        @include lg {
           display: none;
         }
       }
@@ -1946,6 +1963,9 @@ body {
         display: none;
       }
       @include md {
+        display: none;
+      }
+      @include lg {
         display: block;
       }
       font-size: 14px;
@@ -1976,6 +1996,107 @@ body {
           a {
             color: #007bff;
           }
+        }
+      }
+    }
+  }
+}
+.partner {
+  padding: 32px 0;
+  @include md {
+    padding: 20px 0;
+  }
+  .container {
+    @include xs {
+      padding: 0px 30px;
+    }
+    @include sm {
+      padding: 0px 70px;
+    }
+    @include md {
+      padding: 0px 50px;
+    }
+    @include lg {
+      padding: 0 30px;
+    }
+    @include xl {
+      padding: 0;
+    }
+  }
+  &__list {
+    @include xs {
+      flex-direction: column;
+      justify-content: center;
+    }
+    @include sm {
+      flex-direction: column;
+    }
+    @include lg {
+      flex-direction: row;
+    }
+  }
+  &-left {
+    @include xs {
+      flex-direction: column;
+      justify-content: center;
+    }
+    @include sm {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @include lg {
+      flex-direction: row;
+      justify-content: center;
+    }
+    img {
+      max-height: 30px;
+      object-fit: cover;
+    }
+    p {
+      transform: translateY(6px);
+      color: #888;
+      font-size: 14px;
+      padding-left: 10px;
+      @include xs {
+        padding: 20px 0;
+        padding-top: 8px;
+      }
+      @include sm {
+        padding: 24px 0;
+        padding-top: 12px;
+      }
+      @include lg {
+        padding: 0px;
+        padding-left: 10px;
+      }
+    }
+  }
+  &-right {
+    ul {
+      @include xs {
+        justify-content: center;
+      }
+      @include sm {
+        justify-content: center;
+      }
+      @include lg {
+        margin-top: 0px;
+        justify-content: center;
+      }
+      li {
+        margin-right: 5px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        img {
+          object-fit: cover;
+          height: 40px;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &:hover {
+          opacity: 0.6;
         }
       }
     }

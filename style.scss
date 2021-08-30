@@ -624,19 +624,22 @@ body {
       height: 50px;
       padding: 0 48px;
       @include xs {
-        height: 26px;
+        height: 32px;
         padding-left: 12px;
         padding-right: 12px;
         font-size: 10px;
         margin-top: 16px;
+        padding-top: 2px;
       }
       @include sm {
-        height: 42px;
+        height: 44px;
         padding: 0 26px;
+        padding-top: 5px;
       }
       @include lg {
         height: 50px;
         padding: 0 48px;
+        padding-top: 4px;
       }
       &:hover {
         background-color: #fff;

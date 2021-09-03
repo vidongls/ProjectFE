@@ -96,7 +96,7 @@ function sliderHeader() {
     <div class="item flex j-center a-center">
       <div class="slider__image ${val.classCheck}">
         <img src="${val.urlImage}" alt="" />
-        <video loop autoplay>
+        <video loop >
               <source src="${val.urlImage}" type="video/mp4" />
         </video>
       </div>
@@ -220,6 +220,64 @@ function renderProductsBestSeller() {
                   </div> 
                   
                 </div>
+                <div class="modal">
+                <div class="modal-wrapper flex j-center a-center">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button class="close-modal">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="modal__image col-sm-12 col-lg-6">
+                          <div class="message-title">
+                            <i class="fas fa-check"></i> Added to cart successfully!
+                          </div>
+                          <div class="tt-sp">
+                            <img src="${val.urlImage}" alt="" />
+                            <h2>Ralph Coffee Hat</h2>
+                            <div class="tt-qty">
+                              QTY: <span class="soluongTam">1</span>
+                            </div>
+                          </div>
+                          <div class="totalPrice">
+                            Total:
+                            <span class="tt-price">€</span>
+                            <span class="tt-price">${val.price}</span>
+                          </div>
+                        </div>
+                        <div class="modal__button col-sm-12 col-lg-6">
+                          <div class="tt-addCart">
+                            <a href="">
+                              There are <span class="total-sp">1</span>
+                              items
+                              <br />
+                              in your cart
+                              <div class="ttPricecart">
+                                TOTAL:
+                                <span class="tt-gia">€${val.price}</span
+                                ><span class="tt-gia"></span>
+                              </div>
+                            </a>
+                          </div>
+                          <a class="btn-continue"> CONTINUE SHOPPING </a>
+                          <a class="btn-view">VIEW CART</a>
+                          <div class="checkTems">
+                            <input id="checkboxTems" type="checkbox" value="value" />
+                            <label for="checkboxTems">
+                              <span class="check"></span>
+                              <span class="box"></span>
+                              I agree with the terms and conditions
+                            </label>
+                          </div>
+                          <a href="" class="checkOut">PROCEED TO CHECKOUT</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               </div>`
     document
       .querySelector('.products__list-boxitem[data-category="best-sellers"]')
@@ -303,7 +361,67 @@ function renderProductsBestSeller() {
                   </div> 
                   
                 </div>
-              </div>`
+                <div class="modal">
+                <div class="modal-wrapper flex j-center a-center">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button class="close-modal">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="modal__image col-sm-12 col-lg-6">
+                          <div class="message-title">
+                            <i class="fas fa-check"></i> Added to cart successfully!
+                          </div>
+                          <div class="tt-sp">
+                            <img src="${val.urlImage}" alt="" />
+                            <h2>${val.name}</h2>
+                            <div class="tt-qty">
+                              QTY: <span class="soluongTam">1</span>
+                            </div>
+                          </div>
+                          <div class="totalPrice">
+                            Total:
+                            <span class="tt-price">€</span>
+                            <span class="tt-price">${val.price}</span>
+                          </div>
+                        </div>
+                        <div class="modal__button col-sm-12 col-lg-6">
+                          <div class="tt-addCart">
+                            <a href="">
+                              There are <span class="total-sp">1</span>
+                              items
+                              <br />
+                              in your cart
+                              <div class="ttPricecart">
+                                TOTAL:
+                                <span class="tt-gia">€${val.price}</span
+                                ><span class="tt-gia"></span>
+                              </div>
+                            </a>
+                          </div>
+                          <a class="btn-continue"> CONTINUE SHOPPING </a>
+                          <a class="btn-view">VIEW CART</a>
+                          <div class="checkTems">
+                            <input id="checkboxTems" type="checkbox" value="value" />
+                            <label for="checkboxTems">
+                              <span class="check"></span>
+                              <span class="box"></span>
+                              I agree with the terms and conditions
+                            </label>
+                          </div>
+                          <a href="" class="checkOut">PROCEED TO CHECKOUT</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+             `
     document
       .querySelector('.products__list-boxitem[data-category="trending"]')
       .insertAdjacentHTML('beforeend', template)
@@ -329,6 +447,7 @@ function addClassHandler() {
   let btnPatern = document.querySelectorAll('.pattern ul')
   let btnSize = document.querySelectorAll('.products__list-size ul')
   let btnMenuFooter = document.querySelectorAll('.footer__item')
+
   //Add active Pattern class
   btnPatern.forEach((btn) => {
     btn.querySelectorAll('li').forEach((li) => {
@@ -360,9 +479,11 @@ function addClassHandler() {
   })
 
   btnMenuFooter.forEach((btn) => {
-    btn.classList.remove('active')
+    // btn.classList.remove('active')
     btn.addEventListener('click', (e) => {
-      btnMenuFooter.forEach((a) => {})
+      btnMenuFooter.forEach((a) => {
+        a.classList.remove('active')
+      })
       e.preventDefault()
       if (!btn.classList.contains('active')) {
         btn.classList.add('active')
@@ -473,3 +594,33 @@ function listImageLinks() {
       .insertAdjacentHTML('beforeend', template)
   })
 }
+
+//Add to Cart
+
+let arrCart = []
+function addToCart() {
+  let btnAddToCart = document.querySelectorAll('.products__list-itembutton')
+  let modal = document.querySelectorAll('.modal')
+  let btnCloseModal = document.querySelectorAll('.close-modal')
+  let body = document.querySelector('body')
+  //Add to cart
+  btnAddToCart.forEach((btn, index) => {
+    btn.addEventListener('click', (e) => {
+      modal[index].classList.add('active')
+      body.style.overflow = 'hidden'
+      btnCloseModal[index].addEventListener('click', () => {
+        modal[index].classList.remove('active')
+        body.style.overflow = 'visible'
+      })
+      //Add to LocalStorage
+      const item = products.find((val) => val.id === index)
+      arrCart = [...arrCart, item]
+      localStorage.setItem('cart', JSON.stringify(arrCart))
+      // modal[index].addEventListener('click', () => {
+      //   modal[index].classList.remove('active')
+      //   body.style.overflow = 'visible'
+      // })
+    })
+  })
+}
+addToCart()

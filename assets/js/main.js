@@ -220,64 +220,6 @@ function renderProductsBestSeller() {
                   </div> 
                   
                 </div>
-                <div class="modal">
-                <div class="modal-wrapper flex j-center a-center">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button class="close-modal">
-                        <i class="fas fa-times"></i>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="row">
-                        <div class="modal__image col-sm-12 col-lg-6">
-                          <div class="message-title">
-                            <i class="fas fa-check"></i> Added to cart successfully!
-                          </div>
-                          <div class="tt-sp">
-                            <img src="${val.urlImage}" alt="" />
-                            <h2>Ralph Coffee Hat</h2>
-                            <div class="tt-qty">
-                              QTY: <span class="soluongTam">1</span>
-                            </div>
-                          </div>
-                          <div class="totalPrice">
-                            Total:
-                            <span class="tt-price">€</span>
-                            <span class="tt-price">${val.price}</span>
-                          </div>
-                        </div>
-                        <div class="modal__button col-sm-12 col-lg-6">
-                          <div class="tt-addCart">
-                            <a href="">
-                              There are <span class="total-sp">1</span>
-                              items
-                              <br />
-                              in your cart
-                              <div class="ttPricecart">
-                                TOTAL:
-                                <span class="tt-gia">€${val.price}</span
-                                ><span class="tt-gia"></span>
-                              </div>
-                            </a>
-                          </div>
-                          <a class="btn-continue"> CONTINUE SHOPPING </a>
-                          <a class="btn-view">VIEW CART</a>
-                          <div class="checkTems">
-                            <input id="checkboxTems" type="checkbox" value="value" />
-                            <label for="checkboxTems">
-                              <span class="check"></span>
-                              <span class="box"></span>
-                              I agree with the terms and conditions
-                            </label>
-                          </div>
-                          <a href="" class="checkOut">PROCEED TO CHECKOUT</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               </div>`
     document
       .querySelector('.products__list-boxitem[data-category="best-sellers"]')
@@ -361,64 +303,7 @@ function renderProductsBestSeller() {
                   </div> 
                   
                 </div>
-                <div class="modal">
-                <div class="modal-wrapper flex j-center a-center">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button class="close-modal">
-                        <i class="fas fa-times"></i>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="row">
-                        <div class="modal__image col-sm-12 col-lg-6">
-                          <div class="message-title">
-                            <i class="fas fa-check"></i> Added to cart successfully!
-                          </div>
-                          <div class="tt-sp">
-                            <img src="${val.urlImage}" alt="" />
-                            <h2>${val.name}</h2>
-                            <div class="tt-qty">
-                              QTY: <span class="soluongTam">1</span>
-                            </div>
-                          </div>
-                          <div class="totalPrice">
-                            Total:
-                            <span class="tt-price">€</span>
-                            <span class="tt-price">${val.price}</span>
-                          </div>
-                        </div>
-                        <div class="modal__button col-sm-12 col-lg-6">
-                          <div class="tt-addCart">
-                            <a href="">
-                              There are <span class="total-sp">1</span>
-                              items
-                              <br />
-                              in your cart
-                              <div class="ttPricecart">
-                                TOTAL:
-                                <span class="tt-gia">€${val.price}</span
-                                ><span class="tt-gia"></span>
-                              </div>
-                            </a>
-                          </div>
-                          <a class="btn-continue"> CONTINUE SHOPPING </a>
-                          <a class="btn-view">VIEW CART</a>
-                          <div class="checkTems">
-                            <input id="checkboxTems" type="checkbox" value="value" />
-                            <label for="checkboxTems">
-                              <span class="check"></span>
-                              <span class="box"></span>
-                              I agree with the terms and conditions
-                            </label>
-                          </div>
-                          <a href="" class="checkOut">PROCEED TO CHECKOUT</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
               </div>
 
              `
@@ -600,24 +485,82 @@ function listImageLinks() {
 let arrCart = []
 function addToCart() {
   let btnAddToCart = document.querySelectorAll('.products__list-itembutton')
-  let modal = document.querySelectorAll('.modal')
-  let btnCloseModal = document.querySelectorAll('.close-modal')
+  let modal = document.querySelector('.modal')
+
   let body = document.querySelector('body')
   //Add to cart
   btnAddToCart.forEach((btn, index) => {
     btn.addEventListener('click', (e) => {
-      modal[index].classList.add('active')
+      modal.classList.add('active')
       body.style.overflow = 'hidden'
-      btnCloseModal[index].addEventListener('click', () => {
-        modal[index].classList.remove('active')
-        body.style.overflow = 'visible'
-      })
       //Add to LocalStorage
       const item = products.find((val) => val.id === index)
+      let template = `
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="modal__image col-sm-12 col-lg-6">
+                <div class="message-title">
+                  <i class="fas fa-check"></i> Added to cart successfully!
+                </div>
+                <div class="tt-sp">
+                  <img src="${item.urlImage}" alt="" />
+                  <h2>${item.name}</h2>
+                  <div class="tt-qty">
+                    QTY: <span class="soluongTam">1</span>
+                  </div>
+                </div>
+                <div class="totalPrice">
+                  Total:
+                  <span class="tt-price">$${item.price}</span>
+                </div>
+              </div>  
+              <div class="modal__button col-sm-12 col-lg-6">
+                <div class="tt-addCart">
+                  <a href="">
+                    There are <span class="total-sp">1</span>
+                    items
+                    <br />
+                    in your cart
+                    <div class="ttPricecart">
+                      TOTAL:
+                      <span class="tt-gia">$${item.price}</span>
+                    </div>
+                  </a>
+                </div>
+                <a class="btn-continue"> CONTINUE SHOPPING </a>
+                <a class="btn-view">VIEW CART</a>
+                <div class="checkTems">
+                  <input id="checkboxTems" type="checkbox" />
+                  <label for="checkboxTems">
+                    <span class="check"></span>
+                    <span class="box"></span>
+                    I agree with the terms and conditions
+                  </label>
+                </div>
+                <a href="" class="checkOut">PROCEED TO CHECKOUT</a>
+              </div>
+            </div>
+          </div>
+        </div>`
+      document
+        .querySelector('.modal .modal-wrapper')
+        .insertAdjacentHTML('beforeend', template)
+      let btnCloseModal = document.querySelector('.close-modal')
+      btnCloseModal.addEventListener('click', () => {
+        document.querySelector('.modal .modal-wrapper .modal-content').remove()
+        modal.classList.remove('active')
+        body.style.overflow = 'visible'
+      })
       arrCart = [...arrCart, item]
       localStorage.setItem('cart', JSON.stringify(arrCart))
       // modal[index].addEventListener('click', () => {
-      //   modal[index].classList.remove('active')
+      //   modal[index].classList.remove('active'   )
       //   body.style.overflow = 'visible'
       // })
     })

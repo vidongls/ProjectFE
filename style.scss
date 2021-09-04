@@ -2173,6 +2173,17 @@ body {
     background-color: white;
     padding: 40px;
     position: relative;
+    @include xs {
+      padding: 30px;
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    @include sm {
+      padding: 15px;
+    }
     @include lg {
       padding: 40px;
       &:before {
@@ -2186,17 +2197,7 @@ body {
         // top: 0px;
       }
     }
-    @include sm {
-      padding: 15px;
-    }
-    @include xs {
-      padding: 30px;
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
+
     .modal__image {
       @include xs {
         display: flex;
@@ -2351,9 +2352,9 @@ body {
           display: none;
         }
         input#checkboxTems:checked {
-          ~ label .check {
+          + label .check {
             opacity: 1;
-
+            display: block;
             // text-align: left;
           }
         }
@@ -2364,11 +2365,13 @@ body {
           color: #191919;
           transition: all 0.2s linear;
           margin-top: 10px;
+          position: relative;
+          z-index: 15;
           .check {
             border-radius: 2px;
             opacity: 0;
             z-index: 10;
-            margin-left: 50px;
+            // margin-left: 42px;
             margin-top: 3px;
             background: #2879fe;
             width: 17px;
@@ -2376,6 +2379,7 @@ body {
             line-height: 1;
             display: block;
             position: absolute;
+            left: 5px;
           }
           .box {
             border-radius: 2px;
@@ -2383,15 +2387,12 @@ body {
             height: 17px;
             width: 17px;
             z-index: 9;
-            margin-top: 2px;
+            margin-top: 3px;
             border: 1px solid #e9e7e7;
             display: block;
             position: absolute;
-            margin-left: 50px;
-            @include xs {
-              margin-left: 6px;
-              margin-top: 3px;
-            }
+            // margin-left: 42px;
+            left: 5px;
           }
         }
       }

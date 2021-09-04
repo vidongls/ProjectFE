@@ -3438,27 +3438,6 @@ body {
   position: relative;
 }
 
-@media (min-width: 992px) {
-  .modal-content .modal-body {
-    padding: 40px;
-  }
-  .modal-content .modal-body:before {
-    content: '';
-    width: 1px;
-    height: 80%;
-    background: #e9e9e9;
-    position: absolute;
-    left: 50%;
-    margin-left: 8px;
-  }
-}
-
-@media (min-width: 576px) {
-  .modal-content .modal-body {
-    padding: 15px;
-  }
-}
-
 @media (max-width: 576px) {
   .modal-content .modal-body {
     padding: 30px;
@@ -3472,6 +3451,27 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-content .modal-body {
+    padding: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-content .modal-body {
+    padding: 40px;
+  }
+  .modal-content .modal-body:before {
+    content: '';
+    width: 1px;
+    height: 80%;
+    background: #e9e9e9;
+    position: absolute;
+    left: 50%;
+    margin-left: 8px;
   }
 }
 
@@ -3716,8 +3716,9 @@ body {
   display: none;
 }
 
-.modal-content .modal-body .modal__button .checkTems input#checkboxTems:checked ~ label .check {
+.modal-content .modal-body .modal__button .checkTems input#checkboxTems:checked + label .check {
   opacity: 1;
+  display: block;
 }
 
 .modal-content .modal-body .modal__button .checkTems label {
@@ -3728,13 +3729,14 @@ body {
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
   margin-top: 10px;
+  position: relative;
+  z-index: 15;
 }
 
 .modal-content .modal-body .modal__button .checkTems label .check {
   border-radius: 2px;
   opacity: 0;
   z-index: 10;
-  margin-left: 50px;
   margin-top: 3px;
   background: #2879fe;
   width: 17px;
@@ -3742,6 +3744,7 @@ body {
   line-height: 1;
   display: block;
   position: absolute;
+  left: 5px;
 }
 
 .modal-content .modal-body .modal__button .checkTems label .box {
@@ -3750,18 +3753,11 @@ body {
   height: 17px;
   width: 17px;
   z-index: 9;
-  margin-top: 2px;
+  margin-top: 3px;
   border: 1px solid #e9e7e7;
   display: block;
   position: absolute;
-  margin-left: 50px;
-}
-
-@media (max-width: 576px) {
-  .modal-content .modal-body .modal__button .checkTems label .box {
-    margin-left: 6px;
-    margin-top: 3px;
-  }
+  left: 5px;
 }
 
 .modal-content .modal-body .modal__button .checkOut {
